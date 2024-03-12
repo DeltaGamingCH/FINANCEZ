@@ -1,0 +1,17 @@
+# Node.js specific
+node_modules/
+
+# Environment specific
+.env
+
+# IDE/Editor specific
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.bak
+.DS_Store
+Thumbs.db

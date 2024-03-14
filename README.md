@@ -1,5 +1,5 @@
 # FINANCEZ 
-This is FINANCEZ, *(or FinanceZ)*, *(pronounced Financé or Finance Z)* a tool used to track your finances seperately from your e-banking or any other finance tools. 
+This is FINANCEZ, *(or FinanceZ)*, *(pronounced Financé or Finance Z)* is an application used to track your finances seperately from your e-banking. 
 
 ## Introduction
 FINANCEZ is a school project, laying focus on the app's backend, with NodeJS, Express, and the templating tool EJS. 
@@ -22,4 +22,4 @@ Make sure you have NodeJS installed on your local machine.
 - Create a `mongodblink.js` and add the code below. 
 - `const mongodbLink = 'mongodb+srv://<username>:<password>@<clusterLink>';
 module.exports = mongodbLink;`
-- Make sure to replace the url `username` and `password` with your own MongoDB cridentials. 
+- Make sure to replace the url `username`, `password`, and `clusterLink` with your own MongoDB cridentials. 

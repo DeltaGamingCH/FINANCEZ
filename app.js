@@ -12,8 +12,8 @@ const mongoose = require('mongoose');
 //MongoDB Connection
 mongoose.connect(mongodblink).then(() => {
   console.log('Connected to MongoDB');
-}).catch((err) => {
-  console.error('Error connecting to MongoDB:', err.message);
+}).catch((error) => {
+  console.error('Error connecting to MongoDB:', error.message);
 });
 
 app.set('view engine', 'ejs');
@@ -77,7 +77,7 @@ app.post('/register', async (req, res) => {
 
 //Login
 app.get('/login', (req, res) => {
-    res.render('login')
+    res.render('login', { errorMessage: req.flash('error') });
 })
 
 app.post('/login', async (req, res) => {
@@ -96,7 +96,7 @@ app.post('/login', async (req, res) => {
         console.log(user);
         req.session.UserId = user._id;
         req.flash('success', 'Logged in Successfully.');
-        res.redirect('/');
+        res.redirect('/dashboard');
     } catch (error) {
         console.error('Error logging in:', error);
         req.flash('error', messageError);

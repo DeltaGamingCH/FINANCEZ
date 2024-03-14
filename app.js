@@ -29,19 +29,22 @@ app.use(session({
 );
 
 
-//Index
-app.get('/', (req, res) => {
-    res.render('index');
-});
-
-
-
 //UserData MongoDB
 const User = require('./models/User')
 
 //Error Messages
 const messageInvalidUsernameorPass = 'Invalid Username or Password.';
 const messageError = 'An unexpected error occured. Please try again later.'
+
+
+//Middleware User Authentication
+const isAuthenticated = (req, res, next) => {
+    if (req.session.UserId) {
+        next();
+    } else {
+        res.redirect('/login');
+    }
+}
 
 //Register
 app.get('/register', (req, res) => {
@@ -80,7 +83,7 @@ app.get('/login', (req, res) => {
 app.post('/login', async (req, res) => {
     const { usernameOrEmail, password } = req.body;
     try {
-        const user = await User.findOne([{ $or: [{ username: usernameOrEmail }, { email: usernameOrEmail }] }]);
+        const user = await User.findOne({ $or: [{ username: usernameOrEmail }, { email: usernameOrEmail }] });
         if (!user) {
             req.flash('error', messageInvalidUsernameorPass);
             return res.redirect('/login');
@@ -90,6 +93,7 @@ app.post('/login', async (req, res) => {
             req.flash('error', messageInvalidUsernameorPass);
             return res.redirect('/login');
         }
+        console.log(user);
         req.session.UserId = user._id;
         req.flash('success', 'Logged in Successfully.');
         res.redirect('/');
@@ -122,15 +126,20 @@ app.post('/api/v1/users', async (req, res) => {
 });
 
 //Dashboard
-/*
-app.get('/dashboard', (req, res => {
-    if (req.session.username) {
-        res.render('index')
-    } else {
-        res.send('You need to login');
-    }
-}))*/
+app.get('/dashboard', isAuthenticated, (req, res) => {
+    res.render('dashboard');
+})
 
+app.get('/', (req, res) => {
+    if (req.session.UserId) {
+        res.redirect('dashboard');
+    } else {
+        res.redirect('index');
+    }
+})
+
+
+//Server
 app.listen(port, () => {
     console.log('Server is running on port:', port);
 });

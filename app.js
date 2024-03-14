@@ -39,25 +39,55 @@ app.get('/', (req, res) => {
 //UserData MongoDB
 const User = require('./models/User')
 
+//Error Messages
+const messageInvalidUsernameorPass = 'Invalid Username or Password.';
+const messageError = 'An unexpected error occured. Please try again later.'
+
+//Register
+app.get('/register', (req, res) => {
+    res.render('register');
+});
+
+app.post('/register', async (req, res) => {
+    const { username, email, password } = req.body;
+    try {
+        const existingUser = await User.findOne({ $or: [{ username }, { email }] });
+        if (existingUser) {
+            req.flash('error', 'Username or email already exists.');
+            return res.redirect('/register');
+        }
+
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        const newUser = new User({ username, email, password: hashedPassword });
+        await newUser.save();
+
+        req.flash('success', 'User registered successfully.');
+        res.redirect('/login');
+    } catch (error) {
+        console.error('Error registering new user.', error);
+        req.flash(error, messageError);
+        res.redirect('/register');
+    }
+})
+
 
 //Login
 app.get('/login', (req, res) => {
     res.render('login')
 })
 
-
 app.post('/login', async (req, res) => {
-    const { userId, password } = req.body;
-    const messageInvalidIdorPass = 'Invalid User ID or Password.';
+    const { usernameOrEmail, password } = req.body;
     try {
-        const user = await User.findById(userId);
+        const user = await User.findOne([{ $or: [{ username: usernameOrEmail }, { email: usernameOrEmail }] }]);
         if (!user) {
-            req.flash('error', messageInvalidIdorPass);
+            req.flash('error', messageInvalidUsernameorPass);
             return res.redirect('/login');
         }
         const passwordMatch = await bcrypt.compare(password, user.password);
         if (!passwordMatch) {
-            req.flash('error', messageInvalidIdorPass);
+            req.flash('error', messageInvalidUsernameorPass);
             return res.redirect('/login');
         }
         req.session.UserId = user._id;
@@ -65,7 +95,7 @@ app.post('/login', async (req, res) => {
         res.redirect('/');
     } catch (error) {
         console.error('Error logging in:', error);
-        req.flash('error', 'An unexpected error occured. Please try again later.');
+        req.flash('error', messageError);
         res.redirect('/login');
     }
 });

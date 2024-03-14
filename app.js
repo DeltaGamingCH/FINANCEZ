@@ -134,7 +134,7 @@ app.get('/', (req, res) => {
     if (req.session.UserId) {
         res.redirect('dashboard');
     } else {
-        res.redirect('index');
+        res.redirect('/');
     }
 })
 

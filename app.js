@@ -18,6 +18,7 @@ mongoose.connect(mongodblink).then(() => {
 
 app.set('view engine', 'ejs');
 
+app.use(express.static(__dirname + '/common'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(flash());

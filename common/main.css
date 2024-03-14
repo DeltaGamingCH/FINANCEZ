@@ -15,32 +15,38 @@ body{
     height: 100%;
     width: 360px;
     background-color: var(--black2);
-    padding: 16px;
     box-sizing: border-box;
     border-right: solid 1px var(--black3);}
 
 .sidebar-logo{
+    padding: 16px;
     font-weight: 900;
-}
-
-.sidebar li{
-
 }
 
 .sidebar-toplist{
     list-style-type: none;
-    padding: 0px;}
+    padding: 0px;
+    padding-bottom: 8px;
+    border-bottom: solid 1px #0F1112;}
 .sidebar-toplist-item{
-    padding: 8px 8px;
     text-decoration: none;}
-    .sidebar-toplist-item{
+    .sidebar-toplist-item-icon{
+        height: 16px;
+        margin-right: 8px;
+        background-color: #020406;
+    }
+    .sidebar-toplist-item-link{
+        padding: 8px 8px;
+        flex: 1;
         color: #fff;
-        text-decoration: none;}
+        text-decoration: none;
+        transition: 0.3s ease;
+        display: block;}
         .sidebar-toplist-item:hover{
             background-color: #0F1112;
             border-radius: 8px;
+            transition: 0.3s ease;
         }
-
 
 
 .sidebar-end{

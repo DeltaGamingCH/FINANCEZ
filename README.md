@@ -1,5 +1,5 @@
 # FINANCEZ 
-This is FINANCEZ, *(or FinanceZ)*, *(pronounced Financé or Finance Z)* is an application used to track your finances seperately from your e-banking or any other finance tools. 
+This is FINANCEZ, *(or FinanceZ)*, *(pronounced Financé or Finance Z)* is an application used to track your finances seperately from your e-banking. 
 
 ## Introduction
 FINANCEZ is a school project, laying focus on the app's backend, with NodeJS, Express, and the templating tool EJS. 

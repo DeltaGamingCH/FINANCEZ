@@ -2,7 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const flash = require('express-flash');
 const bcrypt = require('bcrypt');
-const data = require('data');
+const mongodblink = require('./config/mongodblink');
 
 const app = express();
 const port = 3000;
@@ -10,8 +10,7 @@ const port = 3000;
 const mongoose = require('mongoose');
 
 //MongoDB Connection
-mongoose.connect('mongodb+srv://databaseUser:FinancezDB0804@financezcluster.4fcese5.mongodb.net/?retryWrites=true&w=majority&appName=FinancezCluster'
-).then(() => {
+mongoose.connect(mongodblink).then(() => {
   console.log('Connected to MongoDB');
 }).catch((err) => {
   console.error('Error connecting to MongoDB:', err.message);

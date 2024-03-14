@@ -44,6 +44,7 @@ const User = mongoose.model(
     {
         username: String, 
         email: String,
+        password: String,
     },
     'User'
 );
@@ -60,15 +61,14 @@ app.get('/api/v1/users', async (req, res) => {
 
 app.post('/api/v1/users', async (req, res) => {
     try {
-        const { username, email } = req.body;
-        const newUser = new User({ username, email });
-        const savedUser = await newUser.save();
-        console.log(savedUser);
-        res.status(201).json(savedUser);
+        const newUser = await User.create(req.body);
+        console.log(newUser);
+        res.status(201).json(newUser);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 });
+
 //Dashboard
 /*
 app.get('/dashboard', (req, res => {
@@ -78,7 +78,6 @@ app.get('/dashboard', (req, res => {
         res.send('You need to login');
     }
 }))*/
-
 
 app.listen(port, () => {
     console.log('Server is running on port:', port);

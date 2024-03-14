@@ -130,7 +130,7 @@ app.get('/dashboard', isAuthenticated, (req, res) => {
     res.render('dashboard');
 })
 
-app.get('/', (req, res) => {
+app.get('/', isAuthenticated, (req, res) => {
     if (req.session.UserId) {
         res.redirect('dashboard');
     } else {

@@ -7,7 +7,7 @@ const mongodblink = require('./config/mongodblink');
 const app = express();
 const port = 3000;
 
-app.use(express.static(__dirname + '/common'));
+app.use(express.static('/common'));
 
 const mongoose = require('mongoose');
 

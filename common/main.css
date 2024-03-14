@@ -3,6 +3,7 @@ body{
     left: 0;
     color: #fff;
     background-color: var(--black);
+    font-family: Metropolis;
 }
 
 .sidebar {
@@ -16,34 +17,34 @@ body{
     background-color: var(--black2);
     padding: 16px;
     box-sizing: border-box;
-    border-right: solid 1px var(--black3);
-}
+    border-right: solid 1px var(--black3);}
 
 .sidebar-end{
     margin-top: auto;
 }
 
-.sidebar-list{
-    list-style-type: none;
+.sidebar-logo{
+    font-weight: 900;
+}
+
+.sidebar-toplist{
+    list-style-type: none;}
+.sidebar-toplist-item{
     padding: 16px;
-}
-
-.sidebar-list-item{
     margin-bottom: 10px;
-}
-
-.sidebar ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.sidebar ul li a:hover {
-    text-decoration: underline;
-}
-
+    text-decoration: none;}
+    .sidebar-toplist-item{
+        color: #fff;
+        text-decoration: none;}
+        .sidebar-toplist-item:hover{
+            background-color: #0F1112;
+            
+        }
 .content{
     position: fixed;
+    top: 0px;
     left: 360px;
+    padding: 64px;
 }
 
 :root{

@@ -28,26 +28,48 @@ app.use(session({
     })
 );
 
+
 //Index
 app.get('/', (req, res) => {
     res.render('index');
 });
+
+
+
+//UserData MongoDB
+const User = require('./models/User')
+
 
 //Login
 app.get('/login', (req, res) => {
     res.render('login')
 })
 
-//UserData
-const User = mongoose.model(
-    'User', 
-    {
-        username: String, 
-        email: String,
-        password: String,
-    },
-    'User'
-);
+
+app.post('/login', async (req, res) => {
+    const { userId, password } = req.body;
+    const messageInvalidIdorPass = 'Invalid User ID or Password.';
+    try {
+        const user = await User.findById(userId);
+        if (!user) {
+            req.flash('error', messageInvalidIdorPass);
+            return res.redirect('/login');
+        }
+        const passwordMatch = await bcrypt.compare(password, user.password);
+        if (!passwordMatch) {
+            req.flash('error', messageInvalidIdorPass);
+            return res.redirect('/login');
+        }
+        req.session.UserId = user._id;
+        req.flash('success', 'Logged in Successfully.');
+        res.redirect('/');
+    } catch (error) {
+        console.error('Error logging in:', error);
+        req.flash('error', 'An unexpected error occured. Please try again later.');
+        res.redirect('/login');
+    }
+});
+
 
 app.get('/api/v1/users', async (req, res) => {
     try {

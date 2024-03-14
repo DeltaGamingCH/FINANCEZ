@@ -46,6 +46,7 @@ const isAuthenticated = (req, res, next) => {
     }
 }
 
+
 //Register
 app.get('/register', (req, res) => {
     res.render('register');
@@ -124,6 +125,7 @@ app.post('/api/v1/users', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
+
 
 //Dashboard
 app.get('/dashboard', isAuthenticated, (req, res) => {

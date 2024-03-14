@@ -17,4 +17,4 @@ node_modules/
 Thumbs.db
 
 # MongoDB specific
-mongodblink
+mongodblink.js

@@ -48,16 +48,27 @@ const User = mongoose.model(
     'User'
 );
 
-app.get('/user', async (req, res) => {
+app.get('/api/v1/users', async (req, res) => {
     try {
         const allUsers = await User.find();
 
-        res.status(200).json(AllUsers);
+        res.status(200).json(allUsers);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 })
 
+app.post('/api/v1/users', async (req, res) => {
+    try {
+        const { username, email } = req.body;
+        const newUser = new User({ username, email });
+        const savedUser = await newUser.save();
+        console.log(savedUser);
+        res.status(201).json(savedUser);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
 //Dashboard
 /*
 app.get('/dashboard', (req, res => {

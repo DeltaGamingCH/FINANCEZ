@@ -19,27 +19,35 @@ body{
     box-sizing: border-box;
     border-right: solid 1px var(--black3);}
 
-.sidebar-end{
-    margin-top: auto;
-}
-
 .sidebar-logo{
     font-weight: 900;
 }
 
+.sidebar li{
+
+}
+
 .sidebar-toplist{
-    list-style-type: none;}
+    list-style-type: none;
+    padding: 0px;}
 .sidebar-toplist-item{
-    padding: 16px;
-    margin-bottom: 10px;
+    padding: 8px 8px;
     text-decoration: none;}
     .sidebar-toplist-item{
         color: #fff;
         text-decoration: none;}
         .sidebar-toplist-item:hover{
             background-color: #0F1112;
-            
+            border-radius: 8px;
         }
+
+
+
+.sidebar-end{
+    margin-top: auto;
+}
+
+
 .content{
     position: fixed;
     top: 0px;

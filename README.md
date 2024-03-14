@@ -22,4 +22,4 @@ Make sure you have NodeJS installed on your local machine.
 - Create a `mongodblink.js` and add the code below. 
 - `const mongodbLink = 'mongodb+srv://<username>:<password>@<clusterLink>';
 module.exports = mongodbLink;`
-- Make sure to replace the url `username` and `password` with your own MongoDB cridentials. 
+- Make sure to replace the url `username`, `password`, and `clusterLink` with your own MongoDB cridentials. 

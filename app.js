@@ -7,6 +7,8 @@ const mongodblink = require('./config/mongodblink');
 const app = express();
 const port = 3000;
 
+app.use(express.static(__dirname + '/common'));
+
 const mongoose = require('mongoose');
 
 //MongoDB Connection
@@ -18,7 +20,6 @@ mongoose.connect(mongodblink).then(() => {
 
 app.set('view engine', 'ejs');
 
-app.use(express.static(__dirname + '/common'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(flash());

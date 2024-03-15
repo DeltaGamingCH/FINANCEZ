@@ -20,7 +20,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.json());
 app.use(express.static('common'));
-app.use('/svgs', express.static('common'))
+app.use('/svgs', express.static('common'));
 app.use(express.urlencoded({ extended: false }));
 app.use(flash());
 app.use(session({

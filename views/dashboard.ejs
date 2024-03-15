@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FINANCEZ</title>
     <link rel="stylesheet" type="text/css" href="/main.css">
-    <script src="/common/dashboardSlider.js" defer></script>
-    <script src="/common/js/dashboardScript.js" defer></script>
+    <script src="/js/dashboardSlider.js" defer></script>
+    <script src="/js/dashboardScript.js" defer></script>
 </head>
 
 <body>
@@ -51,27 +51,24 @@
                 <tbody>
                     <% data.forEach(item=> { %>
                         <tr>
-                            <td>
-                                <a class="open-object" href="/data/<%= item._id %>">
+                            <a class="open-object" href="/data/<%= item._id %>">
+                                <td>
                                     <%= item.title %>
-                                </a>
-                            </td>
-                            <td>
-                                <%= item.title %>
-                            </td>
-                            <td>
-                                <%= item.amount %>
-                            </td>
-                            <td>
-                                <%= item.type %>
-                            </td>
-                            <td>
-                                <%= item.createdAt %>
-                            </td>
-                            <td>
-                                <button class="open-modal">Edit</button>
-                                <button class="delete">Delete</button>
-                            </td>
+                                </td>
+                                <td>
+                                    <%= item.amount %>
+                                </td>
+                                <td>
+                                    <%= item.type %>
+                                </td>
+                                <td>
+                                    <%= item.createdAt %>
+                                </td>
+                                <td>
+                                    <button class="open-modal">Edit</button>
+                                    <button class="delete">Delete</button>
+                                </td>
+                            </a>
                         </tr>
                         <% }); %>
                 </tbody>

@@ -110,27 +110,6 @@ app.post('/login', async (req, res) => {
 });
 
 
-app.get('/api/v1/users', async (req, res) => {
-    try {
-        const allUsers = await User.find();
-
-        res.status(200).json(allUsers);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-})
-
-app.post('/api/v1/users', async (req, res) => {
-    try {
-        const newUser = await User.create(req.body);
-        console.log(newUser);
-        res.status(201).json(newUser);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
-
-
 //Dashboard
 app.get('/dashboard', isAuthenticated, async (req, res) => {
     try { 
@@ -213,6 +192,34 @@ app.get('/account-center', isAuthenticated, async (req, res) => {
 })
 
 
+//API 
+app.get('/api/v1/users', async (req, res) => {
+    try {
+        const allUsers = await User.find();
+        res.status(200).json(allUsers);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+})
+
+app.post('/api/v1/users', async (req, res) => {
+    try {
+        const newUser = await User.create(req.body);
+        console.log(newUser);
+        res.status(201).json(newUser);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+app.get('/api/v1/data', async (req, res) => {
+    try {
+        const allData = await Data.find();
+        res.status(200).json(allData);
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+    }
+})
 
 //Index
 app.get('/', isAuthenticated, (req, res) => {

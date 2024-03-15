@@ -166,17 +166,30 @@ app.post('/dashboard/:dataId', isAuthenticated, async (req, res) => {
 
 app.delete('/dashboard/:dataId', isAuthenticated, async (req, res) => {
     try {
-        console.log('DELETE request received');
+        console.log('Request Received');
         const dataId = req.params.dataId;
-        const data = await Data.findById(dataId);
-        if (!data) {
-            return res.status(404).send('Data not found');
+        const deletedData = await Data.findByIdAndDelete(dataId);
+        if (!deletedData) {
+            return res.status(404).json({ error: 'Data not found'});
         }
-        await data.remove();
+        res.status(200).json({ message: 'Data deleted successfully. '});
         res.redirect('dashboard');
     } catch (error) {
         console.error('Error deleting data: ', error);
         res.status(500).send(messageError);
+    }
+})
+
+app.delete('/api/v1/datas/:id', async (req, res) => {
+    try {
+        const dataId = req.params.id;
+        const deletedData = await Data.findByIdAndDelete(dataId);
+        if (!deletedData) {
+            return res.status(404).json({ error: 'Data not found'});
+        }
+        res.status(200).json({ message: 'Data deleted successfully. '});
+    } catch (error) {
+        res.status(500).json({ error: error.message })
     }
 })
 
@@ -246,7 +259,6 @@ app.get('/api/v1/datas/:dataId', async (req, res) => {
         res.status(500).send(messageError);
     }
 })
-
 
 app.delete('/api/v1/datas/:id', async (req, res) => {
     try {

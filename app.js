@@ -155,7 +155,20 @@ app.post('/dashboard/add', async (req, res) => {
     }
 })
 
+//Account Center
+app.get('/account-center'), async (req, res) => {
+    try {
+        if(req.sesion.UserId) {
+            res.redirect('account-center');
+        }
+    } catch {
+        console.error(messageError);
+    }
+}
 
+
+
+//Index
 app.get('/', isAuthenticated, (req, res) => {
     if (req.session.UserId) {
         res.redirect('dashboard');

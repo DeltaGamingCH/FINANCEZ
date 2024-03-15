@@ -7,7 +7,7 @@
     <title>FINANCEZ</title>
     <link rel="stylesheet" type="text/css" href="/main.css">
     <script src="/js/dashboardSlider.js" defer></script>
-    <script src="/js/dashboardScript.js" defer></script>
+    <script src="/js/dashboardModal.js" defer></script>
 </head>
 
 <body>
@@ -65,8 +65,8 @@
                                     <%= item.createdAt %>
                                 </td>
                                 <td>
-                                    <button class="open-modal">Edit</button>
-                                    <button class="delete">Delete</button>
+                                    <button class="edit-btn">Edit</button>
+                                    <button class="delete-btn">Delete</button>
                                 </td>
                             </a>
                         </tr>
@@ -92,6 +92,13 @@
                 <br>
                 <button type="submit">Create</button>
             </form>
+        </div>
+    </div>
+    <div class="myModal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Modal content goes here.</p>
         </div>
     </div>
 </body>

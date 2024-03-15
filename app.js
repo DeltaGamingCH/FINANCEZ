@@ -3,6 +3,7 @@ const session = require('express-session');
 const flash = require('express-flash');
 const bcrypt = require('bcrypt');
 const mongodblink = require('./config/mongodblink');
+const path = require('path');
 
 const app = express();
 const port = 3000;
@@ -19,8 +20,8 @@ mongoose.connect(mongodblink).then(() => {
 app.set('view engine', 'ejs');
 
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'common/js')));
 app.use(express.static('common'));
-app.use('/svgs', express.static('common'));
 app.use(express.urlencoded({ extended: false }));
 app.use(flash());
 app.use(session({

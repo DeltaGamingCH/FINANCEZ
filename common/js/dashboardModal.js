@@ -1,17 +1,36 @@
-// Get the modal
-var modal = document.getElementById("myModal");
+document.addEventListener("DOMContentLoaded", function() {
+    let modals = document.querySelectorAll('.myModal');
+    let editBtns = document.querySelectorAll('.edit-btn');
+    let closeBtns = document.querySelectorAll('.close-btn');
+    console.log(modals);
+    console.log(editBtns);
+    console.log(closeBtns);
+    
+    function openModal(modal) {
+        modal.style.display = 'block';
+    }
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+    function closeModal(modal) {
+        modal.style.display = 'none';
+    }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
+    editBtns.forEach(function(editBtns, index) {
+        editBtns.addEventListener('click', function() {
+            openModal(modals[index]);
+        });
+    });
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+    closeBtns.forEach(function(closeBtns) {
+        closeBtns.addEventListener('click', function() {
+            closeModal(closeBtns.parentElement.parentElement);
+        });
+    });
+
+    window.addEventListener('click', function(event) {
+        modals.forEach(function(modal) {
+            if (event.target === modal) {
+                closeModal(modal);
+            }
+        });
+    });
+})

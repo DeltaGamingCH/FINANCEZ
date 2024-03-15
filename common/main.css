@@ -28,25 +28,32 @@ body{
     padding: 0px;
     padding-bottom: 8px;
     border-bottom: solid 1px var(--black3);}
-.sidebar-toplist-item{
-    text-decoration: none;}
-    .sidebar-toplist-item-icon{
-        height: 16px;
-        margin-right: 8px;
-        background-color: var(--black);
-    }
-    .sidebar-toplist-item-link{
-        padding: 8px 8px;
-        flex: 1;
-        color: #fff;
-        text-decoration: none;
-        transition: 0.3s ease;
-        display: block;}
-        .sidebar-toplist-item:hover{
-            background-color: var(--black3);
-            border-radius: 8px;
-            transition: 0.3s ease;
+    .sidebar-toplist-item{
+        text-decoration: none;}
+        .sidebar-toplist-item-icon{
+            height: 16px;
+            margin-right: 8px;
+            background-color: var(--black);
         }
+        .sidebar-toplist-item-link{
+            padding: 8px 8px;
+            flex: 1;
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s ease;
+            display: block;}
+            .sidebar-toplist-item:hover{
+                background-color: var(--black3);
+                border-radius: 8px;
+                transition: 0.3s ease;}
+
+.sidebar-mainlist{
+    list-style-type: none;
+    padding: 0px;
+    padding-bottom: 8px;
+    border-bottom: solid 1px var(--black3);}
+
+
 .sidebar-bottomlist{
     margin-top: auto;
     list-style-type: none;

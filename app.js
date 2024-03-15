@@ -10,6 +10,10 @@ const port = 3000;
 
 const mongoose = require('mongoose');
 
+//MongoDB Models
+const User = require('./models/User')
+const Data = require('./models/Data')
+
 //MongoDB Connection
 mongoose.connect(mongodblink).then(() => {
   console.log('Connected to MongoDB');
@@ -30,11 +34,6 @@ app.use(session({
         saveUninitialized: false,
     })
 );
-
-
-//MongoDB Models
-const User = require('./models/User')
-const Data = require('./models/Data')
 
 //Error Messages
 const messageInvalidUsernameorPass = 'Invalid Username or Password.';
@@ -202,6 +201,19 @@ app.get('/api/v1/users', async (req, res) => {
     }
 })
 
+app.get('/api/v1/users/:id', async (req, res) => {
+    try {
+        const userId = req.params.id;
+        const user = await User.findById(userId)
+        if (!user) {
+           return res.status(404).json({ error: 'User not found' }); 
+        }
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+})
+
 app.post('/api/v1/users', async (req, res) => {
     try {
         const newUser = await User.create(req.body);
@@ -212,7 +224,7 @@ app.post('/api/v1/users', async (req, res) => {
     }
 });
 
-app.get('/api/v1/data', async (req, res) => {
+app.get('/api/v1/datas', async (req, res) => {
     try {
         const allData = await Data.find();
         res.status(200).json(allData);
@@ -221,7 +233,7 @@ app.get('/api/v1/data', async (req, res) => {
     }
 })
 
-app.get('/api/v1/data/:dataId', async (req, res) => {
+app.get('/api/v1/datas/:dataId', async (req, res) => {
     try {
         const dataId = req.params.dataId;
         const data = await Data.findById(dataId);
@@ -236,19 +248,14 @@ app.get('/api/v1/data/:dataId', async (req, res) => {
 })
 
 
-app.delete('/api/v1/data/:id', async (req, res) => {
+app.delete('/api/v1/datas/:id', async (req, res) => {
     try {
-        const data = await Data.find();
-        if (req.params._id * 1 > data.length) {
-            return res.status(404).json({
-                status: 'fail',
-                message: 'Invalid ID'
-            })
+        const dataId = req.params.id;
+        const deletedData = await Data.findByIdAndDelete(dataId);
+        if (!deletedData) {
+            return res.status(404).json({ error: 'Data not found'});
         }
-        res.status(204).json({
-            status: 'success',
-            data: data
-        })
+        res.status(200).json({ message: 'Data deleted successfully. '});
     } catch (error) {
         res.status(500).json({ error: error.message })
     }

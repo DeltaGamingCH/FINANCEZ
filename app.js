@@ -193,6 +193,7 @@ app.delete('/api/v1/datas/:id', async (req, res) => {
     }
 })
 
+
 //Account Center
 app.get('/account-center', isAuthenticated, async (req, res) => {
     try { 

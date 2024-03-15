@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/main.css">
     <script src="/common/dashboardSlider.js"></script>
 </head>
+
 <body>
     <div class="sidebar">
         <div class="sidebar-logo">
@@ -14,7 +16,8 @@
         </div>
         <ul class="sidebar-toplist">
             <div class="sidebar-toplist-item">
-                <a class="sidebar-toplist-item-link" href=""><img class="sidebar-toplist-item-icon" src="/iconography/IconDashboard.svg">Dashboard</a>
+                <a class="sidebar-toplist-item-link" href=""><img class="sidebar-toplist-item-icon"
+                        src="/iconography/IconDashboard.svg">Dashboard</a>
             </div>
             <div class="sidebar-toplist-item">
                 <a class="sidebar-toplist-item-link" href="">Search</a>
@@ -36,23 +39,52 @@
         </div>
         <div class="content-table">
             <table>
-                <tr>
-                  <th>Company</th>
-                  <th>Contact</th>
-                  <th>Country</th>
-                </tr>
-                <tr>
-                  <td>Alfreds Futterkiste</td>
-                  <td>Maria Anders</td>
-                  <td>Germany</td>
-                </tr>
-                <tr>
-                  <td>Centro comercial Moctezuma</td>
-                  <td>Francisco Chang</td>
-                  <td>Mexico</td>
-                </tr>
-              </table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Amount</th>
+                        <th>Type</th>
+                        <th>Created At</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach(item=> { %>
+                        <tr>
+                            <td>
+                                <%= item.title %>
+                            </td>
+                            <td>
+                                <%= item.amount %>
+                            </td>
+                            <td>
+                                <%= item.type %>
+                            </td>
+                            <td>
+                                <%= item.createdAt %>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+            <form action="/dashboard/add" method="post">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+                <br>
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" required>
+                <br>
+                <label for="type">Type:</label>
+                <select id="type" name="type" required>
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select>
+                <br>
+                <button type="submit">Create</button>
+            </form>
         </div>
     </div>
 </body>
+
 </html>

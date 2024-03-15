@@ -131,8 +131,28 @@ app.post('/api/v1/users', async (req, res) => {
 
 
 //Dashboard
-app.get('/dashboard', isAuthenticated, (req, res) => {
-    res.render('dashboard');
+app.get('/dashboard', isAuthenticated, async (req, res) => {
+    try { 
+        const allData = await Data.find();
+        res.render('dashboard', { data: allData });
+    } catch (error) {
+        console.error('Error fetching data: ', error);
+        res.status(500).send(messageError);
+    }
+})
+
+app.post('/dashboard/add', async (req, res) => {
+    const userId = req.session.UserId;
+    try {
+        const userDataTypes = await Data.find( userId );
+        const { title, amount, type} = req.body;
+        const newData = new Data({ title, amount, type });
+        await newData.save();
+        res.redirect('/dashboard');
+    } catch (error) {
+        console.error('Error adding new dat: ', error);
+        res.status(500).send(messageError);
+    }
 })
 
 app.get('/', isAuthenticated, (req, res) => {

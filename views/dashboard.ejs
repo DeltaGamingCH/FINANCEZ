@@ -18,7 +18,7 @@
         </div>
         <ul class="sidebar-toplist">
             <div class="sidebar-toplist-item">
-                <a class="sidebar-toplist-item-link" href=""><img class="sidebar-toplist-item-icon"
+                <a class="sidebar-toplist-item-link active" href=""><img class="sidebar-toplist-item-icon"
                         src="/iconography/IconDashboard.svg">Dashboard</a>
             </div>
             <div class="sidebar-toplist-item">
@@ -28,7 +28,7 @@
                 <a class="sidebar-toplist-item-link" href="">Settings</a>
             </div>
         </ul>
-        
+
         <ul class="sidebar-mainlist">
             <div class="sidebar-mainlist-item">
                 <a class="sidebar-mainlist-item-link" href="">Summary</a>
@@ -39,6 +39,9 @@
         </ul>
 
         <ul class="sidebar-bottomlist">
+            <div class="sidebar-bottomlist-item">
+                <a class="sidebar-bottomlist-item-link" href="https://github.com/DeltaGamingCH/FINANCEZ/tree/main?tab=readme-ov-file#financez">Help</a>
+            </div>
             <div class="sidebar-bottomlist-item">
                 <a class="sidebar-bottomlist-item-link" href="/account-center">Account Center</a>
             </div>
@@ -76,7 +79,7 @@
                                     <%= item.createdAt %>
                                 </td>
                                 <td>
-                                    <button class="edit-btn">Edit</button>
+                                    <a href="/dashboard/<%= item._id %>">Edit</a>
                                     <button class="delete-btn">Delete</button>
                                 </td>
                             </a>

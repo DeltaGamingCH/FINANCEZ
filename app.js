@@ -144,13 +144,13 @@ app.get('/dashboard', isAuthenticated, async (req, res) => {
 app.post('/dashboard/add', async (req, res) => {
     const userId = req.session.UserId;
     try {
-        const userDataTypes = await Data.find( userId );
-        const { title, amount, type} = req.body;
-        const newData = new Data({ title, amount, type });
+        const userDataTypes = await Data.find({ userId: userId });
+        const { title, amount, type, createdAt } = req.body;
+        const newData = new Data({ userId, title, amount, type, createdAt });
         await newData.save();
         res.redirect('/dashboard');
     } catch (error) {
-        console.error('Error adding new dat: ', error);
+        console.error('Error adding new data: ', error);
         res.status(500).send(messageError);
     }
 })

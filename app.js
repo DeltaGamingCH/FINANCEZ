@@ -157,7 +157,7 @@ app.post('/dashboard/add', async (req, res) => {
 })
 
 //Account Center
-app.get('/account-center'), async (req, res) => {
+app.get('/account-center'), isAuthenticated, async (req, res) => {
     try {
         if(req.sesion.UserId) {
             res.redirect('account-center');

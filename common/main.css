@@ -47,8 +47,6 @@ body{
             border-radius: 8px;
             transition: 0.3s ease;
         }
-
-
 .sidebar-end{
     margin-top: auto;
 }
@@ -59,7 +57,12 @@ body{
     top: 0px;
     left: 360px;
     padding: 64px;
-}
+    width: calc(100% - 360px - 64px - 64px);}
+    .content-summary{
+        display: block;
+        height: 360px;}
+    .content-table{
+        width: 100%;}
 
 :root{
     --white: #F9FBFD;

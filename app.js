@@ -156,6 +156,18 @@ app.post('/dashboard/add', async (req, res) => {
     }
 })
 
+app.post('/dashboard/:dataId', isAuthenticated, async (req, res) => {
+    try {
+        const dataId = req.params.dataId;
+        const newData = req.body;
+        await Data.findByIdAndUpdate(dataId, newData);
+        res.redirect('/dashboard');
+    } catch (error) {
+        console.error('Error editing data: ', error);
+        res.status(500).send(messageError);
+    }
+})
+
 //Account Center
 app.get('/account-center', isAuthenticated, async (req, res) => {
     try { 

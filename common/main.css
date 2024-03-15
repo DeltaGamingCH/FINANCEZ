@@ -47,9 +47,27 @@ body{
             border-radius: 8px;
             transition: 0.3s ease;
         }
-.sidebar-end{
+.sidebar-bottomlist{
     margin-top: auto;
+    list-style-type: none;
+    padding: 0px;
+    padding-top: 8px;
+    border-top: solid 1px #0F1112;
 }
+.sidebar-bottomlist-item{
+    text-decoration: none;}
+.sidebar-bottomlist-item-link{
+    padding: 8px 8px;
+    flex: 1;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s ease;
+    display: block;}
+    .sidebar-bottomlist-item:hover{
+        background-color: #0F1112;
+        border-radius: 8px;
+        transition: 0.3s ease;
+    }
 
 
 .content{

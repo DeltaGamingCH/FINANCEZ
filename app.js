@@ -221,6 +221,39 @@ app.get('/api/v1/data', async (req, res) => {
     }
 })
 
+app.get('/api/v1/data/:dataId', async (req, res) => {
+    try {
+        const dataId = req.params.dataId;
+        const data = await Data.findById(dataId);
+        if (!data) {
+            return res.status(404).send('Data not found');
+        }
+        res.status(200).send(data);
+    } catch (error) {
+        console.error('Error finding data: ', error)
+        res.status(500).send(messageError);
+    }
+})
+
+
+app.delete('/api/v1/data/:id', async (req, res) => {
+    try {
+        const data = await Data.find();
+        if (req.params._id * 1 > data.length) {
+            return res.status(404).json({
+                status: 'fail',
+                message: 'Invalid ID'
+            })
+        }
+        res.status(204).json({
+            status: 'success',
+            data: data
+        })
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+    }
+})
+
 //Index
 app.get('/', isAuthenticated, (req, res) => {
     if (req.session.UserId) {

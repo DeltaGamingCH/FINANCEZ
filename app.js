@@ -155,6 +155,7 @@ app.post('/dashboard/add', async (req, res) => {
     }
 })
 
+
 app.get('/', isAuthenticated, (req, res) => {
     if (req.session.UserId) {
         res.redirect('dashboard');

@@ -146,8 +146,8 @@ app.post('/dashboard/add', async (req, res) => {
     const userId = req.session.UserId;
     try {
         await Data.find({ userId: userId });
-        const { title, amount, type, createdAt } = req.body;
-        const newData = new Data({ userId, title, amount, type, createdAt });
+        const { title, amount, type, createdAt, lastEdited } = req.body;
+        const newData = new Data({ userId, title, amount, type, createdAt, lastEdited });
         await newData.save();
         res.redirect('/dashboard');
     } catch (error) {
@@ -156,14 +156,48 @@ app.post('/dashboard/add', async (req, res) => {
     }
 })
 
+//Individual Data
+app.get('/dashboard/:dataId', isAuthenticated, async (req, res) => {
+    try {
+        const dataId = req.params.dataId;
+        const data = await Data.findById(dataId);
+        if (!data) {
+            return res.status(404).send('Data not found');
+        }
+        res.render('data', { data });
+    } catch (error) {
+        console.error('Error finding data: ', error)
+        res.status(500).send(messageError);
+    }
+})
+
+
+
 app.post('/dashboard/:dataId', isAuthenticated, async (req, res) => {
     try {
         const dataId = req.params.dataId;
         const newData = req.body;
+        newData.lastEdited = new Date();
         await Data.findByIdAndUpdate(dataId, newData);
         res.redirect('/dashboard');
     } catch (error) {
         console.error('Error editing data: ', error);
+        res.status(500).send(messageError);
+    }
+})
+
+app.delete('/dashboard/:dataId', isAuthenticated, async (req, res) => {
+    try {
+        console.log('DELETE request received');
+        const dataId = req.params.dataId;
+        const data = await Data.findById(dataId);
+        if (!data) {
+            return res.status(404).send('Data not found');
+        }
+        await data.remove();
+        res.redirect('dashboard');
+    } catch (error) {
+        console.error('Error deleting data: ', error);
         res.status(500).send(messageError);
     }
 })

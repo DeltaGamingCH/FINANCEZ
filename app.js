@@ -157,15 +157,14 @@ app.post('/dashboard/add', async (req, res) => {
 })
 
 //Account Center
-app.get('/account-center'), isAuthenticated, async (req, res) => {
-    try {
-        if(req.sesion.UserId) {
-            res.redirect('account-center');
-        }
-    } catch {
-        console.error(messageError);
+app.get('/account-center', isAuthenticated, async (req, res) => {
+    try { 
+        res.render('account-center');
+    } catch (error) {
+        console.error('Error fetching data: ', error);
+        res.status(500).send(messageError);
     }
-}
+})
 
 
 

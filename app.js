@@ -31,8 +31,9 @@ app.use(session({
 );
 
 
-//UserData MongoDB
+//MongoDB Models
 const User = require('./models/User')
+const Data = require('./models/Data')
 
 //Error Messages
 const messageInvalidUsernameorPass = 'Invalid Username or Password.';

@@ -16,7 +16,8 @@ Make sure you have NodeJS installed on your local machine.
 - **Express Flash** `npm i express-flash`
 - **Express Session** `npm i express-session`
 - **Axion** `npm i axion`
-- *(optional)* **Nodemon** `npm i --save-dev nodemon` <br>
+- *(optional)* **Nodemon** `npm i --save-dev nodemon`
+
 *More information on the individual packets and where they're used is coming soon.*
 
 #### MongoDB Connection

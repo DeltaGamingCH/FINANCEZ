@@ -21,7 +21,7 @@ Make sure you have NodeJS installed on your local machine.
 *More information on the individual packets and where they're used is coming soon.*
 
 #### MongoDB Connection
-- Make sure you create a config folder in the main directory.
+- Create a config folder in the main directory.
 - Create a `mongodblink.js` file inside your `config` folder and add the code below. 
 - `const mongodbLink = 'mongodb+srv://<username>:<password>@<clusterLink>';
 module.exports = mongodbLink;`

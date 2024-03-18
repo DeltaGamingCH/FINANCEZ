@@ -23,3 +23,7 @@ Make sure you have NodeJS installed on your local machine.
 - `const mongodbLink = 'mongodb+srv://<username>:<password>@<clusterLink>';
 module.exports = mongodbLink;`
 - Make sure to replace the url `username`, `password`, and `clusterLink` with your own MongoDB cridentials. 
+
+## Development
+### Styling
+For styling, I've taken inspiration from Notion. 

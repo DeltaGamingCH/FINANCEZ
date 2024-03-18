@@ -26,7 +26,7 @@ module.exports = mongodbLink;`
 
 ## User Interface & User Experience
 ### UI / UX
-Financez should be minimal, modern and easy to use. Users should have a haptic feeling when using the app. The use of the app should be easy to understand and act as expected. 
+Financez should be minimal, modern and easy to use application. Users should have a haptic feeling when using the app. The use of the app should be easy to understand and act as expected. 
 
 ### Typography
 The fonts used 'Metropolis' belongs to the Unlicensed font License and can be viewed [here](https://google.com). 

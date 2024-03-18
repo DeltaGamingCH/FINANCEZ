@@ -150,10 +150,10 @@ app.get('/dashboard/:dataId', isAuthenticated, async (req, res) => {
 })
 
 
-
 app.post('/dashboard/:dataId', isAuthenticated, async (req, res) => {
     try {
-        const dataId = req.params.dataId;
+        console.log('Edit request handled');
+        const dataId = req.params.id;
         const newData = req.body;
         newData.lastEdited = new Date();
         await Data.findByIdAndUpdate(dataId, newData);
@@ -173,7 +173,6 @@ app.delete('/dashboard/:dataId', isAuthenticated, async (req, res) => {
             return res.status(404).json({ error: 'Data not found'});
         }
         res.status(200).json({ message: 'Data deleted successfully. '});
-        res.redirect('dashboard');
     } catch (error) {
         console.error('Error deleting data: ', error);
         res.status(500).send(messageError);

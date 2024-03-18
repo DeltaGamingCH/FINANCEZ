@@ -15,6 +15,7 @@
         document.getElementById("dataForm").submit();
     }
 </script>
+
 <body>
     <div class="sidebar">
         <div class="sidebar-logo">
@@ -44,7 +45,8 @@
 
         <ul class="sidebar-bottomlist">
             <div class="sidebar-bottomlist-item">
-                <a class="sidebar-bottomlist-item-link" href="https://github.com/DeltaGamingCH/FINANCEZ/tree/main?tab=readme-ov-file#financez">Help</a>
+                <a class="sidebar-bottomlist-item-link"
+                    href="https://github.com/DeltaGamingCH/FINANCEZ/tree/main?tab=readme-ov-file#financez">Help</a>
             </div>
             <div class="sidebar-bottomlist-item">
                 <a class="sidebar-bottomlist-item-link" href="/account-center">Account Center</a>
@@ -69,34 +71,35 @@
                         </tr>
                     </thead>
                     <tbody>
-                            <tr>
-                                <td>
-                                    <input type="text" name="title" id="title" value="<%= data.title %>">
-                                </td>
-                                <td>
-                                    <input type="number" name="amount" id="amount" value="<%= data.amount %>">
-                                </td>
-                                <td>
-                                    <select id="type" name="type">
-                                        <option value="income" <%= data.type === 'income' ? 'selected' : ''%>>Income</option>
-                                        <option value="expense" <%= data.type === 'expense' ? 'selected' : ''%>>Expense</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <%= data.createdAt %>
-                                </td>
-                                <td id="lastEdited">
-                                    <%= data.lastEdited %>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="title" id="title" value="<%= data.title %>">
+                            </td>
+                            <td>
+                                <input type="number" name="amount" id="amount" value="<%= data.amount %>">
+                            </td>
+                            <td>
+                                <select id="type" name="type">
+                                    <option value="income" <%=data.type==='income' ? 'selected' : '' %>>Income</option>
+                                    <option value="expense" <%=data.type==='expense' ? 'selected' : '' %>>Expense
+                                    </option>
+                                </select>
+                            </td>
+                            <td>
+                                <%= data.createdAt %>
+                            </td>
+                            <td id="lastEdited">
+                                <%= data.lastEdited %>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
                 <button type="submit">Save</button>
                 <a href="/dashboard">Disregard</a>
-                <input type="hidden" name="_method" value="DELETE">
-                <button type="submit">Delete (This can't be undone)</button>
             </form>
-            
+            <form action="/dashboard/<%= data._id %>/" id="dataForm" method="DELETE">
+                <button type="submit">Delete</button>
+            </form>
         </div>
     </div><!--
     <div class="myModal">

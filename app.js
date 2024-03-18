@@ -10,6 +10,7 @@ const port = 3000;
 
 const mongoose = require('mongoose');
 
+
 //MongoDB Models
 const User = require('./models/User')
 const Data = require('./models/Data')
@@ -134,6 +135,7 @@ app.post('/dashboard/add', async (req, res) => {
     }
 })
 
+
 //Individual Data
 app.get('/dashboard/:dataId', isAuthenticated, async (req, res) => {
     try {
@@ -148,7 +150,6 @@ app.get('/dashboard/:dataId', isAuthenticated, async (req, res) => {
         res.status(500).send(messageError);
     }
 })
-
 
 app.post('/dashboard/:dataId', isAuthenticated, async (req, res) => {
     try {
@@ -167,6 +168,7 @@ app.post('/dashboard/:dataId', isAuthenticated, async (req, res) => {
 app.delete('/dashboard/:dataId', isAuthenticated, async (req, res) => {
     try {
         console.log('Request Received');
+        
         const dataId = req.params.dataId;
         const deletedData = await Data.findByIdAndDelete(dataId);
         if (!deletedData) {

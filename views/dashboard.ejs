@@ -18,11 +18,11 @@
         </div>
         <ul class="sidebar-toplist">
             <div class="sidebar-toplist-item">
-                <a class="sidebar-toplist-item-link active" href=""><img class="sidebar-toplist-item-icon"
-                        src="/iconography/IconDashboard.svg">Dashboard</a>
+                <a class="sidebar-toplist-item-link active" href=""><img class="sidebar-toplist-item-icon" src="/iconography/IconDashboard.svg">Dashboard</a>
             </div>
             <div class="sidebar-toplist-item">
-                <a class="sidebar-toplist-item-link" href="">Search</a>
+                
+                <a class="sidebar-toplist-item-link" href=""><img class="sidebar-toplist-item-icon" src="/iconography/IconSearch.svg">Search</a>
             </div>
             <div class="sidebar-toplist-item">
                 <a class="sidebar-toplist-item-link" href="">Settings</a>
@@ -43,7 +43,7 @@
                 <a class="sidebar-bottomlist-item-link" target="_blank" href="https://github.com/DeltaGamingCH/FINANCEZ/tree/main?tab=readme-ov-file#financez">Help</a>
             </div>
             <div class="sidebar-bottomlist-item">
-                <a class="sidebar-bottomlist-item-link" href="/account-center">Account Center</a>
+                <a class="sidebar-bottomlist-item-link" href="/account-center"><img class="sidebar-toplist-item-icon" src="/iconography/IconAccount.svg">Account Center</a>
             </div>
         </ul>
     </div>
@@ -53,39 +53,32 @@
             <p>This is the main content area of your dashboard.</p>
         </div>
         <div class="content-table">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Amount</th>
-                        <th>Type</th>
-                        <th>Created At</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% data.forEach(item=> { %>
-                        <tr>
-                            <a class="open-object" href="/data/<%= item._id %>">
-                                <td>
-                                    <%= item.title %>
-                                </td>
-                                <td>
-                                    <%= item.amount %>
-                                </td>
-                                <td>
-                                    <%= item.type %>
-                                </td>
-                                <td>
-                                    <%= item.createdAt %>
-                                </td>
-                                <td>
-                                    <a href="/dashboard/<%= item._id %>">Edit</a>
-                                </td>
-                            </a>
-                        </tr>
-                        <% }); %>
-                </tbody>
-            </table>
+            <div>
+                <div class="table-header">
+                    <div>Title</div>
+                    <div>Amount</div>
+                    <div>Type</div>
+                    <div>Created At</div>
+                </div>
+                <% data.forEach(item=> { %>
+                <a href="/dashboard/<%= item._id %>">
+                        <div class="table-row">
+                            <div class="table-row-item">
+                                <%= item.title %>
+                            </div>
+                            <div class="table-row-item">
+                                <%= item.amount %>
+                            </div>
+                            <div class="table-row-item">
+                                <%= item.type %>
+                            </div>
+                            <div class="table-row-item">
+                                <%= item.createdAt %>
+                            </div>
+                        </div>
+                    <% }); %>
+                </a>
+            </div>
             <form action="/dashboard/add" method="post">
                 <label for="title">Title:</label>
                 <input type="text" id="title" name="title" required>

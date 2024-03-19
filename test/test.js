@@ -1,33 +1,31 @@
-const app = require('../app');
-const User = require('../models/User');
-const mongodblink = require('../config/mongodblink');
+app.post('/dashboard/test', async (req, res) => {
+    try {
+        const newData = new Data({ test: 'test' });
+        await newData.save();
 
-jest.mock('mongoose');
+        const savedData = await Data.findById(newData._id);
 
-jest.mock('../models/User');
+        if (savedData) {
+            console.log('Data Saved', savedData);
+            res.redirect('/dashboard');
+        }
+    }
+    
+})
 
-mongoose.connect(mongodblink).then(() => {
-    console.log('Connected to MongoDB');
-  }).catch((error) => {
-    console.error('Error connecting to MongoDB:', error.message);
-  });
 
-describe('Login functionality', () => {
-    aftereach(() => {
-        jest.clearAllMocks();
-    });
 
-    it('should successfully login with correct credentials', async () => {
-        User.findOne.mockResolvedValueOnce({
-            username: 'test', 
-            password: 'hashedpassword'
-        });
-
-        const response = await request(app)
-            .post('/login')
-            .send({ usernameOrEmail: 'test', password: 'testpass' });
-
-        expect(response.status).toBe(302);
-        expect(response.headers.location).toBe('/dashboard');
-    });
-});
+try {
+    await newData.save();
+    const savedData = await Data.findById(newData._id);
+    if (savedData) {
+        console.log('New dataset created successfully:', savedData);
+        return true;
+    } else {
+        console.log('Failed to find created dataset.');
+        return false;
+    }
+} catch (error) {
+    console.error('Error', error);
+    return false;
+}

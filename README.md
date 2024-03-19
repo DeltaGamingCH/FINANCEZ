@@ -3,7 +3,7 @@ This is FINANCEZ, *(or FinanceZ)*, *(pronounced Financé or Finance Z)* is an ap
 
 ## Introduction
 FINANCEZ is a school project, laying focus on the app's backend, with NodeJS, Express, and the templating tool EJS. 
-As of right now 3/14/2024, FinanceZ is not 
+As of 3/19/2023, Financez is not a fully fleshed-out product. It should simply visualize the back-end, through simple Express and templating. 
 
 ### Developer Note
 Are you a developer and would like to try it out? Follow the steps below to get it working. 
@@ -17,6 +17,7 @@ Make sure you have NodeJS installed on your local machine.
 - **Express Session** `npm i express-session`
 - **Axion** `npm i axion`
 - *(optional)* **Nodemon** `npm i --save-dev nodemon`
+- *(optional)* **JEST & Supertest** `npm i --save-dev supertest jest`
 
 *More information on the individual packets and where they're used is coming soon.*
 
@@ -26,6 +27,11 @@ Make sure you have NodeJS installed on your local machine.
 - `const mongodbLink = 'mongodb+srv://<username>:<password>@<clusterLink>';
 module.exports = mongodbLink;`
 - Make sure to replace the url `username`, `password`, and `clusterLink` with your own MongoDB cridentials. 
+
+### Testing
+When testing, make sure not to run both the server and the test. 
+Simply run the test, as it runs the server simultaniously. Attempting to start the test while the server is running, will lead to a failed test. 
+- Run the test by using `npx jest login.test.js` in your terminal. 
 
 ## User Interface & User Experience
 ### UI / UX

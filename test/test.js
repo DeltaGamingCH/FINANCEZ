@@ -1,31 +1,37 @@
-app.post('/dashboard/test', async (req, res) => {
+const axios = require('axios');
+const mongoose = require('mongoose');
+
+// Connect to MongoDB using Mongoose
+mongoose.connect('mongodb+srv://databaseUser:FinancezDB0804@financezcluster.4fcese5.mongodb.net/?retryWrites=true&w=majority&appName=FinancezCluster')
+    .then(() => {
+        console.log('Connected to MongoDB');
+        // Once connected, proceed with sending the HTTP request
+        sendHttpRequest();
+    })
+    .catch((error) => {
+        console.error('Error connecting to MongoDB:', error);
+    });
+
+// Define a function to send the HTTP request
+async function sendHttpRequest() {
     try {
-        const newData = new Data({ test: 'test' });
-        await newData.save();
+        // Define the data you want to send in the POST request
+        const postData = {
+            title: 'Test Data',
+            amount: 100,
+            userId: 'testuserid'
+        };
 
-        const savedData = await Data.findById(newData._id);
+        // Make the HTTP POST request using axios
+        const response = await axios.post('http://localhost:3000/dashboard/add', postData);
 
-        if (savedData) {
-            console.log('Data Saved', savedData);
-            res.redirect('/dashboard');
+        // Check if the request was successful
+        if (response.status === 200 && response.data.message === 'Data created successfully') {
+            console.log('Test passed: Data created successfully');
+        } else {
+            console.error('Test failed: Data creation failed');
         }
+    } catch (error) {
+        console.error('Error:', error);
     }
-    
-})
-
-
-
-try {
-    await newData.save();
-    const savedData = await Data.findById(newData._id);
-    if (savedData) {
-        console.log('New dataset created successfully:', savedData);
-        return true;
-    } else {
-        console.log('Failed to find created dataset.');
-        return false;
-    }
-} catch (error) {
-    console.error('Error', error);
-    return false;
 }

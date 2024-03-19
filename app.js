@@ -2,7 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const flash = require('express-flash');
 const bcrypt = require('bcrypt');
-const mongodblink = require('../config/mongodblink');
+const mongodblink = require('./config/mongodblink');
 const path = require('path');
 
 const app = express();

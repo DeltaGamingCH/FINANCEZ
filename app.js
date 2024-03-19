@@ -154,7 +154,7 @@ app.get('/dashboard/:dataId', isAuthenticated, async (req, res) => {
 app.post('/dashboard/:dataId', isAuthenticated, async (req, res) => {
     try {
         console.log('Edit request handled');
-        const dataId = req.params.id;
+        const dataId = req.params.dataId;
         const newData = req.body;
         newData.lastEdited = new Date();
         await Data.findByIdAndUpdate(dataId, newData);

@@ -11,9 +11,18 @@ Are you a developer and would like to try it out? Follow the steps below to get 
 In order for the platform to work, install the following node-packages.
 Make sure you have NodeJS installed on your local machine. 
 <details>
-<summary><b>MongoDB</b><code>npm i mongodb mongoose</code></summary>
-  Test
+<summary><b>MongoDB</b> <code>npm i mongodb mongoose</code></summary>
+  Used to connect with an external database, to be able to login, or create data. 
 </details>
+<details>
+<summary><b>EJS</b> <code>npm i ejs</code></summary>
+  Templating engine, used to display data on the client.  
+</details>
+<details>
+<summary><b>Express</b> <code>npm i express express-flash express-session</code></summary>
+  Complete backend logic bases on Express, like sessions, and routing.   
+</details>
+
 - **MongoDB** `npm i mongodb mongoose`
 - **EJS** `npm i ejs`
 - **Express** `npm i express`

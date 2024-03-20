@@ -123,9 +123,10 @@ app.get('/dashboard', isAuthenticated, async (req, res) => {
     }
 })
 
-app.post('/dashboard/add', async (req, res) => {
+app.post('/dashboard', async (req, res) => {
     const userId = req.session.UserId;
     try {
+        console.log('POST called');
         await Data.find({ userId: userId });
         const { title, amount, type, createdAt, lastEdited } = req.body;
         const newData = new Data({ userId, title, amount, type, createdAt, lastEdited });

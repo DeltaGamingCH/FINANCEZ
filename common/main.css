@@ -141,8 +141,13 @@ body{
         flex: auto;
     }
 .content-table-header{
-    
+
 }
+
+.form{
+    display: flex;
+}
+
 
 .modal {
     display: none; /* Hidden by default */

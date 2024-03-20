@@ -12,8 +12,8 @@ const mongoose = require('mongoose');
 
 
 //MongoDB Models
-const User = require('./models/User')
-const Data = require('./models/Data')
+const User = require('./models/User');
+const Data = require('./models/Data');
 
 //MongoDB Connection
 mongoose.connect(mongodblink).then(() => {

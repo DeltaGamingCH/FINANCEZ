@@ -14,6 +14,7 @@ const mongoose = require('mongoose');
 //MongoDB Models
 const User = require('./models/User');
 const Data = require('./models/Data');
+const calculateTotal = require('./models/DataCalculation');
 
 //MongoDB Connection
 mongoose.connect(mongodblink).then(() => {
@@ -113,8 +114,9 @@ app.post('/login', async (req, res) => {
 //Dashboard
 app.get('/dashboard', isAuthenticated, async (req, res) => {
     try { 
+        const total = await calculateTotal();
         const allData = await Data.find();
-        res.render('dashboard', { data: allData });
+        res.render('dashboard', { data: allData, total });
     } catch (error) {
         console.error('Error fetching data: ', error);
         res.status(500).send(messageError);

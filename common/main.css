@@ -114,23 +114,35 @@ body{
         width: 100%;}
 
     .table-header{
-        background-color: red;
-        padding-block: 8px;
         display: flex;
-        flex-grow: 1;
+        width: 100%;
+        background-color: var(--black2);
+        padding-block: 8px;
+        border: solid 1px var(--black3);
+        border-radius: 8px;
+        flex-wrap: nowrap;
     }
+        .table-header-item{
+            flex: auto;
+            padding: 8px;
+        }
     .table-row{
         display: flex;
-        color: white;
+        flex: 1;
+        color: var(--white);
         flex-direction: row;
+        border-bottom: solid 1px var(--black3);
     }
     .table-row:hover{
 
     }
     .table-row-item{
         padding: 8px;
-        flex-grow: 1;
+        flex: auto;
     }
+.content-table-header{
+    
+}
 
 .modal {
     display: none; /* Hidden by default */

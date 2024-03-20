@@ -10,6 +10,10 @@ Are you a developer and would like to try it out? Follow the steps below to get 
 #### Download Node Dependencies
 In order for the platform to work, install the following node-packages.
 Make sure you have NodeJS installed on your local machine. 
+<details>
+<summary><b>MongoDB</b><code>npm i mongodb mongoose</code></summary>
+  Test
+</details>
 - **MongoDB** `npm i mongodb mongoose`
 - **EJS** `npm i ejs`
 - **Express** `npm i express`

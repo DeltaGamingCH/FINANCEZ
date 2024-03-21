@@ -169,8 +169,6 @@ app.post('/dashboard/:dataId', isAuthenticated, async (req, res) => {
 
 app.delete('/dashboard/:dataId', isAuthenticated, async (req, res) => {
     try {
-        console.log('Request Received');
-        
         const dataId = req.params.dataId;
         const deletedData = await Data.findByIdAndDelete(dataId);
         if (!deletedData) {

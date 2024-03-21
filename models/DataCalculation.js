@@ -1,8 +1,9 @@
 const Data = require('./Data');
 
 async function calculateTotal() {
+    const userId = req.session.UserId;
     try {
-        const allData = await Data.find();
+        const allData = await Data.find({ userId: userId });
 
         let total = 0;
 

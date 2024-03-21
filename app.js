@@ -126,7 +126,6 @@ app.get('/dashboard', isAuthenticated, async (req, res) => {
 app.post('/dashboard', async (req, res) => {
     const userId = req.session.UserId;
     try {
-        console.log('POST called');
         await Data.find({ userId: userId });
         const { title, amount, type, createdAt, lastEdited } = req.body;
         const newData = new Data({ userId, title, amount, type, createdAt, lastEdited });
@@ -156,7 +155,6 @@ app.get('/dashboard/:dataId', isAuthenticated, async (req, res) => {
 
 app.post('/dashboard/:dataId', isAuthenticated, async (req, res) => {
     try {
-        console.log('Edit request handled');
         const dataId = req.params.dataId;
         const newData = req.body;
         newData.lastEdited = new Date();

@@ -18,14 +18,17 @@
         </div>
         <ul class="sidebar-toplist">
             <div class="sidebar-toplist-item">
-                <a class="sidebar-toplist-item-link active" href=""><img class="sidebar-toplist-item-icon" src="/iconography/IconDashboard.svg">Dashboard</a>
+                <a class="sidebar-toplist-item-link active" href=""><img class="sidebar-toplist-item-icon"
+                        src="/iconography/IconDashboard.svg">Dashboard</a>
             </div>
             <div class="sidebar-toplist-item">
-                
-                <a class="sidebar-toplist-item-link" href=""><img class="sidebar-toplist-item-icon" src="/iconography/IconSearch.svg">Search</a>
+
+                <a class="sidebar-toplist-item-link" href=""><img class="sidebar-toplist-item-icon"
+                        src="/iconography/IconSearch.svg">Search</a>
             </div>
             <div class="sidebar-toplist-item">
-                <a class="sidebar-toplist-item-link" href=""><img class="sidebar-toplist-item-icon" src="/iconography/IconSettings.svg">Settings</a>
+                <a class="sidebar-toplist-item-link" href=""><img class="sidebar-toplist-item-icon"
+                        src="/iconography/IconSettings.svg">Settings</a>
             </div>
         </ul>
 
@@ -40,10 +43,12 @@
 
         <ul class="sidebar-bottomlist">
             <div class="sidebar-bottomlist-item">
-                <a class="sidebar-bottomlist-item-link" target="_blank" href="https://github.com/DeltaGamingCH/FINANCEZ/tree/main?tab=readme-ov-file#financez">Help</a>
+                <a class="sidebar-bottomlist-item-link" target="_blank"
+                    href="https://github.com/DeltaGamingCH/FINANCEZ/tree/main?tab=readme-ov-file#financez">Help</a>
             </div>
             <div class="sidebar-bottomlist-item">
-                <a class="sidebar-bottomlist-item-link" href="/account-center"><img class="sidebar-toplist-item-icon" src="/iconography/IconAccount.svg">Account Center</a>
+                <a class="sidebar-bottomlist-item-link" href="/account-center"><img class="sidebar-toplist-item-icon"
+                        src="/iconography/IconAccount.svg">Account Center</a>
             </div>
         </ul>
     </div>
@@ -51,7 +56,8 @@
         <div class="content-summary">
             <h1>Welcome to the Dashboard</h1>
             <p>This is the main content area of your dashboard.</p>
-            <p>Total: <%= total %></p>
+            <p>Total: <%= total %>
+            </p>
         </div>
         <div class="content-table">
             <div>
@@ -62,7 +68,7 @@
                     <div class="table-header-item">Created At</div>
                 </div>
                 <% data.forEach(item=> { %>
-                <a href="/dashboard/<%= item._id %>">
+                    <a href="/dashboard/<%= item._id %>">
                         <div class="table-row">
                             <div class="table-row-item">
                                 <%= item.title %>
@@ -77,13 +83,13 @@
                                 <%= item.createdAt %>
                             </div>
                         </div>
-                    <% }); %>
-                </a>
+                        <% }); %>
+                    </a>
             </div>
             <div class="content-table-create">
                 <form action="/dashboard" method="post" class="form">
-                    <input type="text" id="title" name="title" value="Title" required>
-                    <input type="number" id="amount" name="amount" value="Amount" required>
+                    <input type="text" id="title" name="title" placeholder="Title" required>
+                    <input type="number" id="amount" name="amount" placeholder="Amount" required>
                     <select id="type" name="type" required>
                         <option value="income">Income</option>
                         <option value="expense">Expense</option>
@@ -94,7 +100,7 @@
                     <button type="submit">Create</button>
                 </form>
             </div>
-            
+
         </div>
     </div><!--
     <div class="myModal">

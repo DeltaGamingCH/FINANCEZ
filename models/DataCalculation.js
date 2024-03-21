@@ -1,13 +1,10 @@
 const Data = require('./Data');
 
-async function calculateTotal() {
-    const userId = req.session.UserId;
+async function calculateTotal(userData) {
     try {
-        const allData = await Data.find({ userId: userId });
-
         let total = 0;
 
-        allData.forEach(data => {
+        userData.forEach(data => {
             if (data.type === 'income') {
                 total += data.amount;
             } else if (data.type === 'expense') {

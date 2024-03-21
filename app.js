@@ -113,10 +113,11 @@ app.post('/login', async (req, res) => {
 
 //Dashboard
 app.get('/dashboard', isAuthenticated, async (req, res) => {
+    const userId = req.session.UserId;
     try { 
-        const total = await calculateTotal();
-        const allData = await Data.find();
-        res.render('dashboard', { data: allData, total });
+        const userData = await Data.find({ userId: userId });
+        const total = await calculateTotal(userData); // Assuming calculateTotal function takes userData as parameter
+        res.render('dashboard', { data: userData, total });
     } catch (error) {
         console.error('Error fetching data: ', error);
         res.status(500).send(messageError);

@@ -2,8 +2,8 @@ const express = require('express');
 const session = require('express-session');
 const flash = require('express-flash');
 const bcrypt = require('bcrypt');
-const mongodblink = require('./config/mongodblink');
 const path = require('path');
+const dotenv = require('dotenv').config();
 
 const app = express();
 const port = 3000;
@@ -17,7 +17,7 @@ const Data = require('./models/Data');
 const calculateTotal = require('./models/DataCalculation');
 
 //MongoDB Connection
-mongoose.connect(mongodblink).then(() => {
+mongoose.connect(process.env.MONGODB_URI).then(() => {
   console.log('Connected to MongoDB');
 }).catch((error) => {
   console.error('Error connecting to MongoDB:', error.message);

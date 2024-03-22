@@ -5,8 +5,8 @@ This is FINANCEZ, *(or FinanceZ)*, *(pronounced Financé or Finance Z)* is an ap
 FINANCEZ is a school project, laying focus on the app's backend, with NodeJS, Express, and the templating tool EJS. 
 As of 3/19/2023, Financez is not a fully fleshed-out product. It should simply visualize the back-end, through simple Express and templating. 
 ### Visit Financez
-You can check out Financez for yourself over at (financez.zngr-dynamics.ch)[https://financez.zngr-dynamics.ch/]. 
-The project is hosted on (Render)[https://render.com] and displayed on a custom domain. 
+You can check out Financez for yourself over at [financez.zngr-dynamics.ch](https://financez.zngr-dynamics.ch/). 
+The project is hosted on [Render](https://render.com) and displayed on a custom domain. 
 
 ### Developer Note
 Are you a developer and would like to try it out? Follow the steps below to get it working. 

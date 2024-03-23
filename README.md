@@ -12,15 +12,33 @@ In order for the platform to work, install the following node-packages.
 Make sure you have NodeJS installed on your local machine. 
 <details>
 <summary><b>MongoDB</b> <code>npm i mongodb mongoose</code></summary>
-  Used to connect with an external database, to be able to login, or create data. 
+<br>
+Used to connect with an external database, to be able to login, or create data. 
 </details>
 <details>
 <summary><b>EJS</b> <code>npm i ejs</code></summary>
-  Templating engine, used to display data on the client.  
+<br>
+Templating engine, used to display data on the client.  
 </details>
 <details>
 <summary><b>Express</b> <code>npm i express express-flash express-session</code></summary>
-  Complete backend logic bases on Express, like sessions, and routing.   
+<br>
+Complete backend logic bases on Express, like sessions, and routing.   
+</details>
+<details>
+<summary><b>Axion</b> <code>npm i axion</code></summary>
+<br>
+Used to redirect to another page after dataset deletion.    
+</details>
+<details>
+<summary><i>(optional)</i> <b>Nodemon</b> <code>npm i nodemon --save-dev</code></summary>
+<br>
+Nodemon is used to continously run the app/server, when editing the code. Makes developing easier. This is not needed to run the application
+</details>
+<details>
+<summary><i>(optional)</i> <b>JEST & Supertest</b> <code>npm i jest supertest --save-dev</code></summary>
+<br>
+Used for Unit Testing inside the application, as required by the school project requirements. This is not needed to run the application. 
 </details>
 
 - **MongoDB** `npm i mongodb mongoose`

@@ -44,17 +44,6 @@ Nodemon is used to continously run the app/server, when editing the code. Makes 
 Used for Unit Testing inside the application, as required by the school project requirements. This is not needed to run the application. 
 </details>
 
-- **MongoDB** `npm i mongodb mongoose`
-- **EJS** `npm i ejs`
-- **Express** `npm i express`
-- **Express Flash** `npm i express-flash`
-- **Express Session** `npm i express-session`
-- **Axion** `npm i axion`
-- *(optional)* **Nodemon** `npm i --save-dev nodemon`
-- *(optional)* **JEST & Supertest** `npm i --save-dev supertest jest`
-
-*More information on the individual packets and where they're used is coming soon.*
-
 #### MongoDB Connection
 
 - ~~Create a config folder in the main directory.~~

@@ -1,7 +1,7 @@
 {
   "name": "financez",
   "version": "0.1.0",
-  "main": "server.js",
+  "main": "app.js",
   "engines": {
     "node": "20.x"
   },

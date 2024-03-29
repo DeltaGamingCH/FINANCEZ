@@ -22,10 +22,38 @@ body{
     box-sizing: border-box;
     border-right: solid 1px var(--black3);}
 
-.sidebar-logo{
-    padding: 16px;
-    font-weight: 900;
+.sidebar-header{
+    display: flex;
+    flex-direction: row;
+    height: 64px;
+    background: linear-gradient(var(--black3), var(--black2) 15%);
 }
+    .sidebar-header-logo{
+        padding: 16px;
+        font-weight: 900;
+    }
+    .sidebar-header-button{
+        padding: 16px;
+        margin-left: auto;
+    }
+    .sidebar-header-button button{ /*Temporary button*/
+        background-color: transparent;
+        width: 24px;
+        height: 24px;
+        padding: 0px;
+        border: solid 1px var(--black3);
+        border-radius: 4px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    .sidebar-header-button button:hover{
+        background-color: var(--black3);
+    }
+        .sidebar-header-button-icon{
+            height: 12px; 
+            width: 12px;
+        }
 
 .sidebar-toplist{
     list-style-type: none;

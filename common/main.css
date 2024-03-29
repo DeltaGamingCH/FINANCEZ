@@ -20,8 +20,11 @@ body{
     width: 360px;
     background-color: var(--black2);
     box-sizing: border-box;
-    border-right: solid 1px var(--black3);}
-
+    border-right: solid 1px var(--black3);
+    transition: transform 0.3s ease-in-out;}
+    .sidebar-hidden{
+        transform: translateX(-360px);
+    }
 .sidebar-header{
     display: flex;
     flex-direction: row;
@@ -54,6 +57,10 @@ body{
             height: 12px; 
             width: 12px;
         }
+    
+    .sidebar-header-button-toggled{
+        transform: translateX(64px) rotate(180deg);
+    }
 
 .sidebar-toplist{
     list-style-type: none;

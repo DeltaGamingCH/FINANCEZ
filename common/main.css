@@ -59,7 +59,7 @@ body{
         }
     
     .sidebar-header-button-toggled{
-        transform: translateX(64px) rotate(180deg);
+        transform: translateX(56px) rotate(180deg);
     }
 
 .sidebar-toplist{

@@ -13,105 +13,107 @@
 </head>
 
 <body>
-    <div class="sidebar">
-        <div class="sidebar-header">
-            <div class="sidebar-header-logo">
-                FINANCEZ
-            </div>
-            <div class="sidebar-header-button">
-                <button><img class="sidebar-header-button-icon" src="/iconography/IconNav.svg"></button>
-            </div>
-        </div>
-        <ul class="sidebar-toplist">
-            <div class="sidebar-toplist-item">
-                <a class="sidebar-toplist-item-link active" href=""><img class="sidebar-toplist-item-icon"
-                        src="/iconography/IconDashboard.svg">Dashboard</a>
-            </div>
-            <div class="sidebar-toplist-item">
-                <a class="sidebar-toplist-item-link" href=""><img class="sidebar-toplist-item-icon" src="/iconography/IconSearch.svg">Search</a>
-            </div>
-            <div class="sidebar-toplist-item">
-                <a class="sidebar-toplist-item-link" href=""><img class="sidebar-toplist-item-icon" src="/iconography/IconSettings.svg">Settings</a>
-            </div>
-        </ul>
-
-        <ul class="sidebar-mainlist">
-            <div class="sidebar-mainlist-item">
-                <a class="sidebar-mainlist-item-link" href="">Summary</a>
-            </div>
-            <div class="sidebar-mainlist-item">
-                <a class="sidebar-mainlist-item-link" href="">Category</a>
-            </div>
-        </ul>
-
-        <ul class="sidebar-bottomlist">
-            <div class="sidebar-bottomlist-item">
-                <a class="sidebar-bottomlist-item-link" target="_blank"
-                    href="https://github.com/DeltaGamingCH/FINANCEZ/tree/main?tab=readme-ov-file#financez">Help</a>
-            </div>
-            <div class="sidebar-bottomlist-item">
-                <a class="sidebar-bottomlist-item-link" href="/account-center"><img class="sidebar-toplist-item-icon"
-                        src="/iconography/IconAccount.svg">Account Center</a>
-            </div>
-        </ul>
-    </div>
-    <div class="content">
-        <div class="content-summary">
-            <h1>Welcome to the Dashboard</h1>
-            <p>This is the main content area of your dashboard.</p>
-            <p>Total: <%= total %>
-            </p>
-        </div>
-        <div class="content-table">
-            <div>
-                <div class="table-header">
-                    <div class="table-header-item">Title</div>
-                    <div class="table-header-item">Amount</div>
-                    <div class="table-header-item">Type</div>
-                    <div class="table-header-item">Created At</div>
+    <div class="financez-app">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-header-logo">
+                    FINANCEZ
                 </div>
-                <% data.forEach(item=> { %>
-                    <a href="/dashboard/<%= item._id %>">
-                        <div class="table-row">
-                            <div class="table-row-item">
-                                <%= item.title %>
-                            </div>
-                            <div class="table-row-item">
-                                <%= item.amount %>
-                            </div>
-                            <div class="table-row-item">
-                                <%= item.type %>
-                            </div>
-                            <div class="table-row-item">
-                                <%= item.createdAt %>
-                            </div>
-                        </div>
-                        <% }); %>
-                    </a>
+                <div class="sidebar-header-button">
+                    <button><img class="sidebar-header-button-icon" src="/iconography/IconNav.svg"></button>
+                </div>
             </div>
-            <div class="content-table-create">
-                <form action="/dashboard" method="post" class="form">
-                    <input type="text" id="title" name="title" placeholder="Title" required>
-                    <input type="number" id="amount" name="amount" placeholder="Amount" required>
-                    <select id="type" name="type" required>
-                        <option value="income">Income</option>
-                        <option value="expense">Expense</option>
-                    </select>
-                    <select id="category" name="category" required>
-                        <option value="category1">Category1</option>
-                    </select>
-                    <button type="submit">Create</button>
-                </form>
+            <ul class="sidebar-toplist">
+                <div class="sidebar-toplist-item">
+                    <a class="sidebar-toplist-item-link active" href=""><img class="sidebar-toplist-item-icon"
+                            src="/iconography/IconDashboard.svg">Dashboard</a>
+                </div>
+                <div class="sidebar-toplist-item">
+                    <a class="sidebar-toplist-item-link" href=""><img class="sidebar-toplist-item-icon" src="/iconography/IconSearch.svg">Search</a>
+                </div>
+                <div class="sidebar-toplist-item">
+                    <a class="sidebar-toplist-item-link" href=""><img class="sidebar-toplist-item-icon" src="/iconography/IconSettings.svg">Settings</a>
+                </div>
+            </ul>
+    
+            <ul class="sidebar-mainlist">
+                <div class="sidebar-mainlist-item">
+                    <a class="sidebar-mainlist-item-link" href="">Summary</a>
+                </div>
+                <div class="sidebar-mainlist-item">
+                    <a class="sidebar-mainlist-item-link" href="">Category</a>
+                </div>
+            </ul>
+    
+            <ul class="sidebar-bottomlist">
+                <div class="sidebar-bottomlist-item">
+                    <a class="sidebar-bottomlist-item-link" target="_blank"
+                        href="https://github.com/DeltaGamingCH/FINANCEZ/tree/main?tab=readme-ov-file#financez">Help</a>
+                </div>
+                <div class="sidebar-bottomlist-item">
+                    <a class="sidebar-bottomlist-item-link" href="/account-center"><img class="sidebar-toplist-item-icon"
+                            src="/iconography/IconAccount.svg">Account Center</a>
+                </div>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="content-summary">
+                <h1>Welcome to the Dashboard</h1>
+                <p>This is the main content area of your dashboard.</p>
+                <p>Total: <%= total %>
+                </p>
             </div>
-
-        </div>
-    </div><!--
-    <div class="myModal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Modal content goes here.</p>
-        </div>
-    </div>-->
+            <div class="content-table">
+                <div>
+                    <div class="table-header">
+                        <div class="table-header-item">Title</div>
+                        <div class="table-header-item">Amount</div>
+                        <div class="table-header-item">Type</div>
+                        <div class="table-header-item">Created At</div>
+                    </div>
+                    <% data.forEach(item=> { %>
+                        <a href="/dashboard/<%= item._id %>">
+                            <div class="table-row">
+                                <div class="table-row-item">
+                                    <%= item.title %>
+                                </div>
+                                <div class="table-row-item">
+                                    <%= item.amount %>
+                                </div>
+                                <div class="table-row-item">
+                                    <%= item.type %>
+                                </div>
+                                <div class="table-row-item">
+                                    <%= item.createdAt %>
+                                </div>
+                            </div>
+                            <% }); %>
+                        </a>
+                </div>
+                <div class="content-table-create">
+                    <form action="/dashboard" method="post" class="form">
+                        <input type="text" id="title" name="title" placeholder="Title" required>
+                        <input type="number" id="amount" name="amount" placeholder="Amount" required>
+                        <select id="type" name="type" required>
+                            <option value="income">Income</option>
+                            <option value="expense">Expense</option>
+                        </select>
+                        <select id="category" name="category" required>
+                            <option value="category1">Category1</option>
+                        </select>
+                        <button type="submit">Create</button>
+                    </form>
+                </div>
+    
+            </div>
+        </div><!--
+        <div class="myModal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Modal content goes here.</p>
+            </div>
+        </div>-->
+    </div>
 </body>
 
 </html>

@@ -143,10 +143,10 @@ body {
 
 .content{
     flex: 1;
-    box-sizing: border-box;
+    box-sizing: border-box; /*Temp*/
     padding: 64px;
     max-height: 100%;
-    /*width: calc(100% - 360px - 64px - 64px);*/
+    /*width: calc(100% - 360px - 64px - 64px); Removed Temp*/
     transition: transform 0.3s ease-in-out;
     overflow-y: auto;}
     .content-summary{

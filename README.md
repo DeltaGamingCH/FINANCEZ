@@ -68,6 +68,6 @@ Financez should be minimal, modern and easy to use application. Users should hav
 The fonts used 'Metropolis' belongs to the Unlicensed font License and can be viewed [here](https://google.com). 
 
 ### Iconography
-All icons seen in Financez is created by me, through Figma. 
+All icons seen in Financez is created by me through Figma. 
 Please do not use, share or restribute any of the icons you see on the platform, without contacting me first. 
 

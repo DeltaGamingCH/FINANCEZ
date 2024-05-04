@@ -7,6 +7,7 @@ As of 3/19/2023, Financez is not a fully fleshed-out product. It should simply v
 ### Visit Financez
 You can check out Financez for yourself, over at [financez.zngr-dynamics.ch](https://financez.zngr-dynamics.ch/). 
 The project is hosted on [Render](https://render.com) and displayed on a custom domain. 
+Due to using the Free plan of Render, loading times up to a minute might occur. 
 
 ### Developer Note
 Are you a developer and would like to try it out? Follow the steps below to get it working. 

@@ -16,7 +16,7 @@ You can check out Financez for yourself, over at [financez.zngr-dynamics.ch](htt
 Are you a developer and would like to try it out? Follow the steps below to get it working. 
 #### Download Node Dependencies
 In order for the platform to work, install the following node-packages.
-Make sure you have NodeJS installed on your local machine. 
+Make sure you have NodeJS and NPM installed on your local machine. Use <code>npm-install-all</code>
 <details>
 <summary><b>MongoDB</b> <code>npm i mongodb mongoose</code></summary>
 <br>
